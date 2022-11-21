@@ -1,0 +1,97 @@
+.header{
+  display: flex;
+  background-color: #6725A8;
+  width: 100%;
+  padding: 20px 24px;
+  justify-content: space-between;
+}
+.header_left_container{
+  display: flex;
+  flex-direction: row;
+}
+.header_left_container h1 {
+  font-family: 'Open Sans', sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 28px;
+  line-height: 24px;
+
+  letter-spacing: 0.02em;
+
+  color: #FFFFFF;
+  min-width: 120px;
+}
+.header_left_container img {
+  margin-right: 16px;
+  padding: 12px 10px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  cursor: pointer;
+}
+
+.header_search_container{
+  width: 100%;
+  position: relative;
+  margin: 0 32px;
+}
+
+.header_search{
+  width: 100%;
+  align-items: center;
+  padding: 10px 20px;
+
+
+  height: 48px;
+
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 36px;
+  font-family: 'Open Sans', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 24px;
+  color: #FFFFFF;
+}
+.header_search::placeholder {
+  color: #FFFFFF;
+  opacity: 0.5;
+}
+
+.header_search_container img {
+  position: absolute;
+  top: 12px;
+  right: 20px;
+  bottom: 0;
+  opacity: 0.5;
+  width: 24px;
+  height: 24px;
+}
+.header_icons_container {
+  display: flex;
+  flex-direction: row;
+}
+.header_icon_card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-right: 40px;
+  cursor: pointer;
+}
+.header_icon_card:last-child{
+  margin-right: 0;
+}
+.header_icon_card img {
+  margin-bottom: 7px;
+  width: 28px;
+  height: 28px;
+}
+.header_icon_title {
+  font-family: 'Open Sans', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 16px;
+
+  color: #FFFFFF;
+
+}

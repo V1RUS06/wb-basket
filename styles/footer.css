@@ -1,0 +1,13 @@
+.footer_text {
+  font-family: 'Open Sans', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 16px;
+  /* identical to box height, or 123% */
+
+  text-align: center;
+
+  color: rgba(255, 255, 255, 0.7);
+
+}

@@ -1,0 +1,12 @@
+.basket_container {}
+.basket_container h2 {
+  font-family: 'Open Sans', sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 28px;
+  line-height: 36px;
+
+  letter-spacing: -0.01em;
+
+  margin-top: 10px;
+}
