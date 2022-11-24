@@ -16,6 +16,7 @@
   <link rel="stylesheet" href="styles/basket.css">
   <link rel="stylesheet" href="styles/footer.css">
   <link rel="stylesheet" href="styles/index.css">
+  <link rel="stylesheet" href="styles/bottom_nav.css">
   <link rel="stylesheet" href="styles/adaptive.css">
 
   <title>WB TEST L0</title>
@@ -93,6 +94,10 @@
                   <img src="assets/images/product_1.png" alt="product" class="product_img">
                 </div>
                 <div class="product_info">
+                  <div class="product_cost_container_mobile">
+                    <div class="cost">522 <span>сом</span></div>
+                    <div class="cost_without-discount">1051 сом</div>
+                  </div>
                   <div class="product_name">
                     Футболка UZcotton мужская
                   </div>
@@ -130,6 +135,8 @@
           </div>
 
           <div class="item_container">
+            <div class="border"></div>
+
             <div class="item_left_container">
 
               <div class="product_card">
@@ -143,6 +150,10 @@
                   <img src="assets/images/product_2.png" alt="product" class="product_img">
                 </div>
                 <div class="product_info">
+                  <div class="product_cost_container_mobile">
+                    <div class="cost">2 000 421 <span>сом</span></div>
+                    <div class="cost_without-discount">2 300 047 сом</div>
+                  </div>
                   <div class="product_name">
                     Силиконовый чехол картхолдер (отверстия) для карт, прозрачный кейс бампер на Apple iPhone XR, MobiSafe
                   </div>
@@ -181,6 +192,7 @@
           </div>
 
           <div class="item_container">
+            <div class="border"></div>
             <div class="item_left_container">
               <div class="product_card">
                 <div class="product_image_container pl-32">
@@ -191,6 +203,10 @@
                   <img src="assets/images/product_3.png" alt="product" class="product_img">
                 </div>
                 <div class="product_info">
+                  <div class="product_cost_container_mobile">
+                    <div class="cost">494 <span>сом</span></div>
+                    <div class="cost_without-discount">950 сом</div>
+                  </div>
                   <div class="product_name">
                     Карандаши цветные Faber-Castell "Замок", набор 24 цвета, заточенные, шестигранные, Faber-Castell
                   </div>
@@ -205,12 +221,15 @@
             </div>
             <div class="item_right_container">
               <div class="product_controls_container">
-                <div class="counter">
-                  <div class="counter_minus">-</div>
-                  <div class="counter_value">1</div>
-                  <div class="counter_plus">+</div>
+                <div class="product_controls_container_left">
+                  <div class="counter">
+                    <div class="counter_minus">-</div>
+                    <div class="counter_value">1</div>
+                    <div class="counter_plus">+</div>
+                  </div>
+                  <div class="product_max">Осталось 2 шт.</div>
+
                 </div>
-                <div class="product_max">Осталось 2 шт.</div>
                 <div class="product_controls_icons">
                   <img src="/assets/icons/Favorites.svg" alt="favorites">
                   <img src="/assets/icons/Trash.svg" alt="trash">
@@ -238,6 +257,10 @@
 
               <div class="product_card">
                 <div class="product_image_container item_disabled">
+                  <label class="checkbox">
+                    <input class="check_input" type="checkbox" name="select_all"  disabled>
+                    <span class="check_box" ></span>
+                  </label>
                   <img src="assets/images/product_1.png" alt="product" class="product_img">
                 </div>
                 <div class="product_info item_disabled">
@@ -268,9 +291,15 @@
           </div>
 
           <div class="item_container ">
+            <div class="border"></div>
+
             <div class="item_left_container item_disabled">
               <div class="product_card">
                 <div class="product_image_container item_disabled">
+                  <label class="checkbox">
+                    <input class="check_input" type="checkbox" name="select_all"  disabled>
+                    <span class="check_box" ></span>
+                  </label>
                   <img src="assets/images/product_2.png" alt="product" class="product_img">
                 </div>
                 <div class="product_info">
@@ -303,9 +332,15 @@
           </div>
 
           <div class="item_container">
+            <div class="border"></div>
+
             <div class="item_left_container item_disabled">
               <div class="product_card">
                 <div class="product_image_container">
+                  <label class="checkbox">
+                    <input class="check_input" type="checkbox" name="select_all" disabled>
+                    <span class="check_box" ></span>
+                  </label>
                   <img src="assets/images/product_3.png" alt="product" class="product_img">
                 </div>
                 <div class="product_info">
@@ -394,7 +429,9 @@
           </div>
           <div class="bottom_info_container">
             <img src="/assets/icons/done_green.svg" alt="done_green">
-            Обратная доставка товаров на склад при отказе — <span>бесплатно</span>
+            <div>
+              Обратная доставка товаров на склад при отказе — <span>бесплатно</span>
+            </div>
           </div>
         </div>
 
@@ -437,7 +474,7 @@
 
 
       <div class="basket_right_container ">
-        <div class="white_wrapper shadow p0">
+        <div class="white_wrapper shadow p0 desktop">
           <div class="final_basket_inner_container">
             <div class="row_container total_title">
               <div>Итого</div>
@@ -511,6 +548,81 @@
 
           </div>
         </div>
+        <div class="p0 mobile_visible">
+          <div class="final_basket_inner_container">
+            <div class="row_container total_title">
+              <div>Итого</div>
+              <div>2 101 063 сом</div>
+            </div>
+
+            <div class="row_container jc-sb basket_total_normal_text mt-8">
+              <div>4 товара</div>
+              <div>2 300 400</div>
+            </div>
+            <div class="row_container jc-sb basket_total_normal_text">
+              <div>Скидка</div>
+              <div>- 200 985</div>
+            </div>
+            <div class="row_container jc-sb basket_total_normal_text">
+              <div>Доставка</div>
+              <div>Беслпатно</div>
+            </div>
+
+            <div class="basket_section_container">
+              <div class="row_container jc-sb">
+                <div class="basket_section_title">Доставка в пункт выдачи</div>
+                <img src="/assets/icons/pan.svg" alt="pan">
+              </div>
+
+              <div class="address">
+                Бишкек, улица Ахматбека Суюмбаева, 12/1
+                <span>5–8 фев</span>
+              </div>
+              <div class="gray_wrapper mt-12">
+                <div class="bottom_info">
+                  <img src="/assets/icons/done_green.svg" alt="done_green">
+                  <div>
+                    Обратная доставка товаров на склад при отказе — <span>бесплатно</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="basket_section_container">
+              <div class="row_container jc-sb">
+                <div class="basket_section_title">Доставка в пункт выдачи</div>
+                <img src="/assets/icons/pan.svg" alt="pan">
+              </div>
+
+              <div class="bank_card">
+                <img src="/assets/icons/card_mir.svg" alt="bank_card">
+                1234 56•• •••• 1234
+              </div>
+              <div class="gray_wrapper mt-12">
+                <div class="bottom_info column_container">
+                  <label class="basket_checkbox pl-30">
+                    <input class="check_input" type="checkbox">
+                    <div class="check_box "></div>
+                    Списать оплату сразу
+                  </label>
+                  <div class="mt-8">Спишем оплату с карты при получении</div>
+                </div>
+              </div>
+            </div>
+
+            <button class="basket_button mt-24">
+              Заказать
+            </button>
+
+            <label class="basket_checkbox rules_checkbox mt-12 row_container ">
+              <img src="/assets/icons/done_black.svg" alt="" class="mr-4">
+              Соглашаюсь с правилами пользования торговой площадкой и возврата
+            </label>
+
+
+          </div>
+        </div>
+
       </div>
 
 
@@ -521,6 +633,39 @@
     <div class="footer_text">© 2022  ООО «Товары и точка»</div>
 
   </footer>
+  <div class="nav__menu" id="nav-menu">
+    <ul class="nav__list">
+      <li class="nav__item">
+        <a href="#home" class="nav__link active-link">
+          <img class="nav__icon" src="/assets/icons/bottom_nav/home.svg" alt="icon">
+        </a>
+      </li>
+      <li class="nav__item">
+        <a href="#catalog" class="nav__link">
+          <img class="nav__icon" src="/assets/icons/bottom_nav/catalog.svg" alt="icon">
+        </a>
+      </li>
+      <li class="nav__item">
+        <a href="#cart" class="nav__link">
+          <img class="nav__icon" src="/assets/icons/bottom_nav/active_cart.svg" alt="icon">
+          <div class="nav_icon-label">
+            <div>3</div>
+          </div>
+        </a>
+      </li>
+      <li class="nav__item">
+        <a href="#favorites" class="nav__link">
+          <img class="nav__icon" src="/assets/icons/bottom_nav/favorites_nav.svg" alt="icon">
+        </a>
+      </li>
+      <li class="nav__item">
+        <a href="#profile" class="nav__link">
+          <img class="nav__icon" src="/assets/icons/bottom_nav/profile.svg" alt="icon">
+        </a>
+      </li>
+    </ul>
+  </div>
+
 </div>
 
 
