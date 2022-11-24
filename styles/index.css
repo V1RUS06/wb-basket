@@ -56,3 +56,44 @@
 .mt-24 {
   margin-top: 24px;
 }
+.ai-s {
+  align-items: stretch;
+}
+.pl-32 {
+  padding-left: 32px;
+}
+.pl-30 {
+  padding-left: 30px;
+}
+.ml-32 {
+  margin-left: -32px;
+}
+.mr-4 {
+  margin-right: 4px;
+}
+
+.check_input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+}
+.check_box {
+  position: absolute;
+  width: 22px;
+  height: 22px;
+  background-image: url("/assets/icons/checkbox_off.svg");
+  margin-left: -34px;
+
+}
+.check_input:checked + .check_box {
+  background-image: url("/assets/icons/checkbox.svg");
+}
+
+
+
+
+
+
+

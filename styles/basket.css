@@ -456,7 +456,7 @@
   align-items: center;
 }
 .basket_section_container .basket_checkbox input{
-  margin-right: 8px;
+  margin-right: -8px;
 }
 .final_basket_inner_container .basket_button {
   display: flex;

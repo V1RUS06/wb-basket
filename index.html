@@ -16,6 +16,7 @@
   <link rel="stylesheet" href="styles/basket.css">
   <link rel="stylesheet" href="styles/footer.css">
   <link rel="stylesheet" href="styles/index.css">
+  <link rel="stylesheet" href="styles/adaptive.css">
 
   <title>WB TEST L0</title>
 </head>
@@ -48,10 +49,11 @@
       <div class="basket_left_container">
         <h2>Корзина</h2>
         <div class="basket_section">
-          <div class="checkbox">
-            <input id="basket_select_all" type="checkbox" name="select_all" >
-            <label for="basket_select_all">Выбрать все</label>
-          </div>
+          <label class="checkbox pl-32">
+            <input class="check_input" type="checkbox" name="select_all" >
+            <span class="check_box"></span>
+            Выбрать все
+          </label>
 
           <img class="arrow" src="assets/icons/ArrowTop.svg" alt="arrow">
         </div>
@@ -60,10 +62,11 @@
             <div class="item_left_container">
               <div class="product_card">
 
-                <div class="product_image_container">
-                  <div class="checkbox">
-                    <input type="checkbox" name="select_all" >
-                  </div>
+                <div class="product_image_container pl-32">
+                  <label class="checkbox">
+                    <input class="check_input" type="checkbox" name="select_all" >
+                    <span class="check_box"></span>
+                  </label>
                   <img src="assets/images/product_1.png" alt="product" class="product_img">
                 </div>
                 <div class="product_info">
@@ -108,10 +111,12 @@
 
               <div class="product_card">
 
-                <div class="product_image_container">
-                  <div class="checkbox">
-                    <input type="checkbox" name="select_all" >
-                  </div>
+                <div class="product_image_container pl-32">
+                  <label class="checkbox">
+                    <input class="check_input" type="checkbox" name="select_all" >
+                    <span class="check_box" ></span>
+
+                  </label>
                   <img src="assets/images/product_2.png" alt="product" class="product_img">
                 </div>
                 <div class="product_info">
@@ -155,10 +160,11 @@
           <div class="item_container">
             <div class="item_left_container">
               <div class="product_card">
-                <div class="product_image_container">
-                  <div class="checkbox">
-                    <input type="checkbox" name="select_all" >
-                  </div>
+                <div class="product_image_container pl-32">
+                  <label class="checkbox">
+                    <input class="check_input" type="checkbox" name="select_all"  checked>
+                    <span class="check_box" ></span>
+                  </label>
                   <img src="assets/images/product_3.png" alt="product" class="product_img">
                 </div>
                 <div class="product_info">
@@ -386,7 +392,7 @@
             </div>
         </div>
 
-        <div class="white_wrapper">
+        <div class="white_wrapper ai-s">
           <div class="white_wrapper_header">
             <div class="white_wrapper_title">Получатель</div>
           </div>
@@ -460,10 +466,11 @@
               </div>
               <div class="gray_wrapper mt-12">
                 <div class="bottom_info column_container">
-                  <div class="basket_checkbox">
-                    <input id='write_of_payment' type="checkbox">
-                    <label for="write_of_payment">Списать оплату сразу</label>
-                  </div>
+                  <label class="basket_checkbox pl-30">
+                    <input class="check_input" type="checkbox">
+                    <div class="check_box "></div>
+                    Списать оплату сразу
+                  </label>
                   <div class="mt-8">Спишем оплату с карты при получении</div>
                 </div>
               </div>
@@ -473,10 +480,10 @@
               Заказать
             </button>
 
-            <div class="basket_checkbox rules_checkbox mt-12 row_container ">
-              <input id='confirm_rules' type="checkbox">
-              <label for="confirm_rules">Соглашаюсь с правилами пользования торговой площадкой и возврата</label>
-            </div>
+            <label class="basket_checkbox rules_checkbox mt-12 row_container ">
+              <img src="/assets/icons/done_black.svg" alt="" class="mr-4">
+              Соглашаюсь с правилами пользования торговой площадкой и возврата
+            </label>
 
 
           </div>
