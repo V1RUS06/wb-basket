@@ -4,6 +4,7 @@ import {Payment} from "./payment.js";
 
 window.addEventListener('load', () => {
   Cart.renderCart()
+  Payment.renderPayment()
   rerenderFinalPrice() // Начальное обновление цены
   addListenerOnCheckboxes();
   addListenerOnProductCounter();
@@ -68,6 +69,7 @@ function addListenerOnCheckboxes() {
     })
   })
 }
+
 
 function rerenderFinalPrice() {
   const finalPriceSpan = document.querySelector('.final_price')
