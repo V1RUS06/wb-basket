@@ -181,6 +181,9 @@
   line-height: 24px;
   color: #000000;
 }
+.counter_minus:disabled, .counter_plus:disabled {
+  opacity: 0.2;
+}
 .product_max {
   font-style: normal;
   font-weight: 400;
@@ -195,12 +198,15 @@
   align-self: flex-end;
   align-items: center;
 }
-.product_controls_icons img {
+.product_controls_icons .favorites {
   margin-right: 16px;
   cursor: pointer;
 }
-.product_controls_icons img:last-child{
-  margin-right: 0px;
+.product_controls_icons .trash {
+  cursor: pointer;
+}
+.product_controls_icons  .favorites:hover, .trash:hover {
+  stroke: #F55123
 }
 .product_cost_container {
   display: flex;
@@ -214,6 +220,7 @@
   font-weight: 700;
   font-size: 16px;
   line-height: 24px;
+  white-space: nowrap;
 }
 .product_cost_container .cost span{
   font-style: normal;
