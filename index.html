@@ -237,7 +237,7 @@
         <div class="white_wrapper">
           <div class="white_wrapper_header">
             <div class="white_wrapper_title">Способ доставки</div>
-            <div class="white_wrapper_change_btn">Изменить</div>
+            <div class="white_wrapper_change_btn change-btn">Изменить</div>
           </div>
           <div class='pickup_point_container'>
             <div class="pickup_point_section">
@@ -302,25 +302,7 @@
           </div>
         </div>
 
-        <div class="payment_container">
-<!--          <div class="white_wrapper">-->
-<!--            <div class="white_wrapper_header">-->
-<!--              <div class="white_wrapper_title">Способ оплаты</div>-->
-<!--              <div class="white_wrapper_change_btn">Изменить</div>-->
-<!--            </div>-->
-
-<!--            <div class="bank_card">-->
-<!--              <img src="/assets/icons/card_mir.svg" alt="bank_card">-->
-<!--              1234 56•• •••• 1234-->
-<!--              <span>01/30</span>-->
-<!--            </div>-->
-
-<!--            <div class="comment">-->
-<!--              Спишем оплату с карты при получении-->
-<!--            </div>-->
-<!--          </div>-->
-
-        </div>
+        <div class="payment_container"></div>
 
         <div class="white_wrapper ai-s">
           <div class="white_wrapper_header">
@@ -367,7 +349,7 @@
             <div class="basket_section_container">
               <div class="row_container jc-sb">
                 <div class="basket_section_title">Доставка в пункт выдачи</div>
-                <img src="/assets/icons/pan.svg" alt="pan">
+                <img src="/assets/icons/pan.svg" alt="pan" class="change-btn">
               </div>
 
               <div class="address">
@@ -386,13 +368,13 @@
 
             <div class="basket_section_container">
               <div class="row_container jc-sb">
-                <div class="basket_section_title">Доставка в пункт выдачи</div>
-                <img src="/assets/icons/pan.svg" alt="pan">
+                <div class="basket_section_title">Оплата картой</div>
+                <img src="/assets/icons/pan.svg" alt="pan" class="change-btn" data-action="payment-modal">
               </div>
 
               <div class="bank_card">
-                <img src="/assets/icons/card_mir.svg" alt="bank_card">
-                1234 56•• •••• 1234
+                <img src="/assets/icons/card_mir.svg" alt="bank_card" id="img_card_on_payment_basket_container">
+                <span class="card-span">1234 56•• •••• 1234</span>
               </div>
               <div class="gray_wrapper mt-12">
                 <div class="bottom_info column_container">
@@ -465,8 +447,8 @@
               </div>
 
               <div class="bank_card">
-                <img src="/assets/icons/card_mir.svg" alt="bank_card">
-                1234 56•• •••• 1234
+                <img id="img_card_on_payment_mobile_container" src="/assets/icons/card_mir.svg" alt="bank_card">
+                <span class="card-span">1234 56•• •••• 1234</span>
               </div>
               <div class="gray_wrapper mt-12">
                 <div class="bottom_info column_container">
