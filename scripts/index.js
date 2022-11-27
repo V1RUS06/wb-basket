@@ -1,9 +1,11 @@
 import {Cart} from "./cart.js";
 import {Payment} from "./payment.js";
+import {Address} from "./address.js";
 
 
 window.addEventListener('load', () => {
   Cart.renderCart()
+  Address.renderAddress()
   rerenderFinalPrice() // Начальное обновление цены
   addListenerOnCheckboxes();
   addListenerOnProductCounter();
@@ -55,11 +57,34 @@ function addModalsListeners(){
       if(action ==='payment-modal'){
         Payment.renderPaymentModal()
         addPaymentModalListeners()
-
-
-
+      }
+      if (action === 'address-modal'){
+        Address.renderAddressModal()
+        addAddressModalListeners()
       }
     })
+  })
+
+}
+
+function addAddressModalListeners() {
+  const closeBtn = document.querySelector('.close_btn')
+  const checkboxesLabel = document.querySelectorAll('.circle_checkbox_address')
+  const chooseBtn = document.querySelector('.modal_button')
+
+  closeBtn.addEventListener('click', e => {
+    closeModal()
+  })
+
+  checkboxesLabel.forEach(elem => {
+    elem.addEventListener('click', e => {
+      const index = e.currentTarget.dataset.index
+      Address.changeSelectedAddressIndex(index)
+    })
+  })
+
+  chooseBtn.addEventListener('click', () => {
+    rerenderAddresses()
   })
 
 }
@@ -71,7 +96,7 @@ function addPaymentModalListeners() {
 
 
   closeBtn.addEventListener('click', e => {
-    closePaymentModal()
+    closeModal()
   })
   checkboxesLabel.forEach(elem => {
     elem.addEventListener('click', e => {
@@ -86,7 +111,7 @@ function addPaymentModalListeners() {
 }
 
 
-function closePaymentModal(){
+function closeModal(){
   const modal = document.querySelector('.modal')
   const overlay = document.querySelector('.overlay')
 
@@ -162,13 +187,26 @@ function rerenderCard() {
   const cardImgOnBasket = document.getElementById('img_card_on_payment_basket_container')
   const index = Payment.selectedCardIndex
 
-  console.log(Payment.cards[index].img_source)
-
   cardSpan.forEach(elem => {
     elem.textContent = Payment.cards[index].card_number + " " + Payment.cards[index].card_day
   })
   cardImg.src = Payment.cards[index].img_source
   cardImgOnBasket.src = Payment.cards[index].img_source
   cardImgMobile.src = Payment.cards[index].img_source
-  closePaymentModal()
+  closeModal()
+}
+
+function rerenderAddresses() {
+  const addressSpan = document.querySelectorAll('.address_span')
+  const addressRateSpan = document.querySelectorAll('.address_rate')
+  const index = Address.activeAddressIndex
+
+
+  addressSpan.forEach(elem => {
+    elem.textContent = Address.addresses[index].address
+  })
+  addressRateSpan.forEach(elem => {
+    elem.textContent = Address.addresses[index].rate
+  })
+  closeModal()
 }

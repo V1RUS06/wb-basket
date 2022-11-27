@@ -1,0 +1,70 @@
+.address_modal-width {
+  width: 500px;
+}
+.addresses_cards_container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  position: relative;
+  padding-bottom: 16px;
+}
+.content_title {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 13px;
+  line-height: 16px;
+
+  color: #000000;
+
+  padding-bottom: 8px;
+}
+.address_card {
+  display: flex;
+  flex-direction: row;
+  align-self: flex-start;
+  margin: 0 0 0 20px;
+  justify-content: space-between;
+}
+.address_card span {
+  padding-right: 10px;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+
+  color: #000000;
+
+}
+.circle_checkbox_address {
+  margin-right: 10px;
+  align-self: center;
+}
+.circle_check_box_address {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  top: 1px;
+  background-image: url("/assets/icons/circle_checkbox.svg");
+
+}
+.check_input:checked + .circle_check_box_address {
+  background-image: url("/assets/icons/fill_circle_checkbox.svg");
+}
+.w-100 {
+  width: 100%;
+}
+.trash_icon {
+  flex-shrink: 0;
+  cursor: pointer;
+  align-self: flex-start;
+}
+.trash_icon:hover {
+  stroke: #F55123
+}
+
+@media only screen and (max-width: 480px) {
+  .address_modal-width {
+    width: 100vw;
+    padding: 16px;
+  }
+}

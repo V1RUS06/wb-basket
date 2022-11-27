@@ -19,9 +19,11 @@
   <link rel="stylesheet" href="styles/bottom_nav.css">
   <link rel="stylesheet" href="styles/adaptive.css">
   <link rel="stylesheet" href="styles/paymentModal.css">
+  <link rel="stylesheet" href="styles/addressModal.css">
   <!--  SCRIPTS-->
   <script type="module" src="./scripts/index.js" defer></script>
   <script type="module" src="./scripts/payment.js" defer></script>
+  <script type="module" src="./scripts/address.js" defer></script>
   <title>WB TEST L0</title>
 </head>
 <body>
@@ -234,72 +236,8 @@
           </div>
         </div>
 
-        <div class="white_wrapper">
-          <div class="white_wrapper_header">
-            <div class="white_wrapper_title">Способ доставки</div>
-            <div class="white_wrapper_change_btn change-btn">Изменить</div>
-          </div>
-          <div class='pickup_point_container'>
-            <div class="pickup_point_section">
-              <div class="pickup_left_container">
-                <div class="pickup_point_title">Пункт выдачи</div>
-              </div>
-              <div class="pickup_right_container">
-                <div class="pickup_point_address">Бишкек, улица Ахматбека Суюмбаева, 12/1</div>
-                <div class="pickup_point_info">
-                  <img src="/assets/icons/Star.svg" alt="star">
-                  <span>4.99</span>
-                  <div class="pickup_point_work_time">
-                    Ежедневно с 10 до 21
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="pickup_point_section">
-              <div class="pickup_left_container">
-                <div class="pickup_point_title">Стоимость доставки</div>
-              </div>
-              <div class="pickup_right_container column_container">
-                <div class="delivery_cost">Бесплатно</div>
-              </div>
+        <div class="address_container">
 
-            </div>
-            <div class="pickup_point_section">
-              <div class="pickup_left_container">
-                <div class="pickup_point_title">5—6 февраля</div>
-              </div>
-
-              <div class="pickup_right_container row_container">
-                <div class="product_card">
-                  <img src="/assets/images/product_1.png" alt="product">
-                </div>
-                <div class="product_card">
-                  <img src="/assets/images/product_2.png" alt="product">
-                </div>
-                <div class="product_card">
-                  <img src="/assets/images/product_3.png" alt="product">
-                </div>
-              </div>
-
-            </div>
-            <div class="pickup_point_section">
-              <div class="pickup_left_container">
-                <div class="pickup_point_title">7—8 февраля</div>
-              </div>
-
-              <div class="pickup_right_container row_container">
-                <div class="product_card">
-                  <img src="/assets/images/product_3.png" alt="product">
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="bottom_info_container">
-            <img src="/assets/icons/done_green.svg" alt="done_green">
-            <div>
-              Обратная доставка товаров на склад при отказе — <span>бесплатно</span>
-            </div>
-          </div>
         </div>
 
         <div class="payment_container"></div>
@@ -349,11 +287,11 @@
             <div class="basket_section_container">
               <div class="row_container jc-sb">
                 <div class="basket_section_title">Доставка в пункт выдачи</div>
-                <img src="/assets/icons/pan.svg" alt="pan" class="change-btn">
+                <img data-action="address-modal" src="/assets/icons/pan.svg" alt="pan" class="change-btn">
               </div>
 
               <div class="address">
-                Бишкек, улица Ахматбека Суюмбаева, 12/1
+                <span class="address_span">Бишкек, улица Табышалиева, 57</span>
                 <span>5–8 фев</span>
               </div>
               <div class="gray_wrapper mt-12">
@@ -423,12 +361,12 @@
             <div class="basket_section_container">
               <div class="row_container jc-sb">
                 <div class="basket_section_title">Доставка в пункт выдачи</div>
-                <img src="/assets/icons/pan.svg" alt="pan">
+                <img class="change-btn" data-action="address-modal" src="/assets/icons/pan.svg" alt="pan">
               </div>
 
               <div class="address">
-                Бишкек, улица Ахматбека Суюмбаева, 12/1
-                <span>5–8 фев</span>
+                <span class="address_span">Бишкек, улица Ахматбека Суюмбаева, 12/1</span>
+                <span class="deliver_date">5–8 фев</span>
               </div>
               <div class="gray_wrapper mt-12">
                 <div class="bottom_info">
@@ -442,8 +380,8 @@
 
             <div class="basket_section_container">
               <div class="row_container jc-sb">
-                <div class="basket_section_title">Доставка в пункт выдачи</div>
-                <img src="/assets/icons/pan.svg" alt="pan">
+                <div class="basket_section_title">Оплата картой</div>
+                <img class="change-btn" data-action="payment-modal" src="/assets/icons/pan.svg" alt="pan">
               </div>
 
               <div class="bank_card">
