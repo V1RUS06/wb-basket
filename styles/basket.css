@@ -33,6 +33,9 @@
 .basket_section .arrow {
   cursor: pointer;
 }
+.basket_section .arrow.rotate{
+  transform: rotate(180deg);
+}
 .basket_section_title {
   font-style: normal;
   font-weight: 600;

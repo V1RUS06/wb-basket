@@ -8,11 +8,35 @@ window.addEventListener('load', () => {
   Address.renderAddress()
   Payment.renderPayment()
 
+  addListenersOnArrows()
   rerenderFinalPrice() // Начальное обновление цены
   addListenerOnCheckboxes();
   addListenerOnProductCounter();
   addModalsListeners();
 })
+
+function addListenersOnArrows(){
+  const firstArrow = document.getElementById('first_arrow')
+  const secondArrow = document.getElementById('second_arrow')
+  const activeBasketContainer = document.getElementById('active_basket_container')
+  const disabledBasketContainer = document.getElementById('disabled_basket_container')
+
+
+
+  firstArrow.addEventListener('click', e => rotateArrowAndHideContainer(activeBasketContainer, e.target))
+  secondArrow.addEventListener('click', e => rotateArrowAndHideContainer(disabledBasketContainer, e.target))
+}
+
+function rotateArrowAndHideContainer(container, arrow) {
+    if (arrow.classList.contains('rotate')){
+      arrow.classList.remove('rotate')
+      container.classList.remove('hidden')
+      return
+    }
+    arrow.classList.add('rotate')
+    container.classList.add('hidden')
+
+}
 
 function addListenerOnProductCounter() {
   const increasedElementCountButtons = document.querySelectorAll('.counter_plus')
