@@ -1,13 +1,47 @@
 .address_modal-width {
   width: 500px;
 }
-.addresses_cards_container {
+.address_card_container {
   display: flex;
   flex-direction: row;
   align-items: center;
   position: relative;
   padding-bottom: 16px;
 }
+.delivery_methods_container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 13px 0 13px;
+  cursor: pointer;
+}
+.delivery_method_btn {
+  flex:1;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 9px 0 11px;
+  height: 36px;
+
+  background: #FFFFFF;
+  border: 2px solid rgba(203, 17, 171, 0.15);
+  border-radius: 20px;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 13px;
+  line-height: 16px;
+
+  color: #000000;
+}
+.delivery_method_btn:first-child {
+  margin-right: 8px;
+}
+
+.delivery_method_btn.active {
+  border: 2px solid #CB11AB;
+}
+
+
 .content_title {
   font-style: normal;
   font-weight: 700;

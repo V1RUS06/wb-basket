@@ -6,10 +6,11 @@ import {Address} from "./address.js";
 window.addEventListener('load', () => {
   Cart.renderCart()
   Address.renderAddress()
+  Payment.renderPayment()
+
   rerenderFinalPrice() // Начальное обновление цены
   addListenerOnCheckboxes();
   addListenerOnProductCounter();
-  Payment.renderPayment()
   addModalsListeners();
 })
 
@@ -60,6 +61,7 @@ function addModalsListeners(){
       }
       if (action === 'address-modal'){
         Address.renderAddressModal()
+        Address.renderDelivery();
         addAddressModalListeners()
       }
     })
@@ -85,6 +87,26 @@ function addAddressModalListeners() {
 
   chooseBtn.addEventListener('click', () => {
     rerenderAddresses()
+  })
+
+  const methodsButtons = document.querySelectorAll('.delivery_method_btn')
+
+  methodsButtons.forEach(button => {
+    button.addEventListener('click', e => {
+      const button = e.target
+      const action = e.currentTarget.dataset.action
+      if (action === 'courier') {
+        button.classList.add('active')
+        Address.changeDeliveryMethod(action)
+        button.previousElementSibling.classList.remove('active')
+      }
+      if (action === 'delivery_point') {
+        button.classList.add('active')
+        Address.changeDeliveryMethod(action)
+        button.nextElementSibling.classList.remove('active')
+      }
+      Address.renderDelivery()
+    })
   })
 
 }
@@ -200,13 +222,22 @@ function rerenderAddresses() {
   const addressSpan = document.querySelectorAll('.address_span')
   const addressRateSpan = document.querySelectorAll('.address_rate')
   const index = Address.activeAddressIndex
+  const delivery_method = Address.delivery_method
 
 
   addressSpan.forEach(elem => {
-    elem.textContent = Address.addresses[index].address
+    if (delivery_method === 'courier') {
+      elem.textContent = Address.addresses[index].address
+    } else {
+      elem.textContent = Address.points_addresses[index].address
+    }
   })
   addressRateSpan.forEach(elem => {
-    elem.textContent = Address.addresses[index].rate
+    if (delivery_method === 'courier') {
+      elem.textContent = Address.addresses[index].rate
+    } else {
+      elem.textContent = Address.points_addresses[index].rate
+    }
   })
   closeModal()
 }
