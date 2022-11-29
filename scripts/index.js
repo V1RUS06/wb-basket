@@ -21,8 +21,6 @@ function addListenersOnArrows(){
   const activeBasketContainer = document.getElementById('active_basket_container')
   const disabledBasketContainer = document.getElementById('disabled_basket_container')
 
-
-
   firstArrow.addEventListener('click', e => rotateArrowAndHideContainer(activeBasketContainer, e.target))
   secondArrow.addEventListener('click', e => rotateArrowAndHideContainer(disabledBasketContainer, e.target))
 }
@@ -170,13 +168,15 @@ function closeModal(){
 function addListenerOnCheckboxes() {
   const checkboxes = document.querySelectorAll('.check_box');
   const selectAllCheckbox = document.getElementById('select_all');
+  const paymentCheckbox = document.getElementById('payment_checkbox')
+  const paymentCheckboxComment = document.getElementById('payment_checkbox_comment')
+  const payBtn = document.getElementById('pay_button')
+  const price = Cart.getFinalBasketPrice()
 
   selectAllCheckbox.addEventListener('click', (e) => {
     Cart.onSelectAll()
     rerenderFinalPrice();
   })
-
-
 
   checkboxes.forEach(checkbox => {
     checkbox.addEventListener('click', (e) => {
@@ -191,6 +191,18 @@ function addListenerOnCheckboxes() {
       rerenderFinalPrice()
     })
   })
+
+  paymentCheckbox.addEventListener('click', e => {
+    if (paymentCheckboxComment.classList.contains('hidden')){
+      paymentCheckboxComment.classList.remove('hidden')
+      payBtn.innerHTML = `Заказать`
+      rerenderFinalPrice()
+      return
+    }
+    paymentCheckboxComment.classList.add('hidden')
+    payBtn.innerHTML = `Оплатить ${price} сом`
+    rerenderFinalPrice()
+  })
 }
 
 
@@ -201,6 +213,16 @@ function rerenderFinalPrice() {
 
   finalPriceSpan.textContent = `${finalPrice} сом`;
   finalPriceMobileSpan.textContent = `${finalPrice} сом`;
+  rerenderPayBtnText()
+}
+
+function rerenderPayBtnText () {
+  const payBtn = document.getElementById('pay_button')
+  const finalPrice = Cart.getFinalBasketPrice();
+  const paymentCheckboxComment = document.getElementById('payment_checkbox_comment')
+  if (paymentCheckboxComment.classList.contains('hidden')) {
+    payBtn.innerHTML = `Оплатить ${finalPrice} сом`
+  }
 }
 function rerenderCount(counter, id) {
   const productIndex = Cart.cart.findIndex(el => el.id === +id)
