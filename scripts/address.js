@@ -204,7 +204,12 @@ export const Address = {
           <div class="bottom_info_container">
             <img src="/assets/icons/done_green.svg" alt="done_green">
             <div>
-              Обратная доставка товаров на склад при отказе — <span>бесплатно</span>
+              Обратная доставка товаров на склад при отказе — <span class="green_info tooltip">
+              бесплатно
+              <span class="tooltip_container tooltip_text w-300">
+                Если товары вам не подойдут, мы вернем их обратно на склад — это бесплатно
+              </span>
+              </span>
             </div>
           </div>
         </div>

@@ -157,8 +157,18 @@ export const Cart = {
                   </div>
                   <div class="seller_info">
                     <div class="info_gray">${item.storage}</div>
-                    <div class="info_gray">${item.seller}
-                      <img src="/assets/icons/info.svg" alt="info" class="info_right_icon">
+                    <div class="info_gray">
+                      ${item.seller}
+                      <span class="tooltip">
+                        <img src="/assets/icons/info.svg" alt="info" class="info_right_icon">
+                        <div class="tooltip_container w-300">
+                          <div class="tooltip_title">
+                          OOO «МЕГАПРОФСТИЛЬ»</div>
+                          <div class="tooltip_text">ОГРН: 5167746237148</div>
+                          <div class="tooltip_text">129337, Москва, улица Красная Сосна, 2, корпус 1, стр. 1, помещение 2, офис 34</div>
+                      </div>
+                      </span>
+                      
                     </div>
                   </div>
                 </div>
@@ -188,7 +198,19 @@ export const Cart = {
               </div>
               <div class="product_cost_container">
                 <span class="cost">${item.newPrice} сом</span>
-                <span class="cost_without-discount">${item.lastPrice} сом</span>
+                <span class="cost_without-discount tooltip">${item.lastPrice} сом
+                <div class="tooltip_container">
+                  <div class="tooltip_discount_container">
+                     <div>Скидка 55%</div>
+                     <div class="tooltip_text-gray">- ${item.lastPrice - item.newPrice} com</div>
+                  </div>
+                 <div class="tooltip_discount_container">
+                     <div>Скидка покупателя 10%</div>
+                     <div class="tooltip_text-gray">- ${item.lastPrice - item.newPrice} com</div>
+                    </div>
+                </div>
+               </span>
+                
               </div>
             </div>
           </div>

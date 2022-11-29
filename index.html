@@ -20,10 +20,13 @@
   <link rel="stylesheet" href="styles/adaptive.css">
   <link rel="stylesheet" href="styles/paymentModal.css">
   <link rel="stylesheet" href="styles/addressModal.css">
+  <link rel="stylesheet" href="styles/tooltips.css">
   <!--  SCRIPTS-->
   <script type="module" src="./scripts/index.js" defer></script>
   <script type="module" src="./scripts/payment.js" defer></script>
   <script type="module" src="./scripts/address.js" defer></script>
+  <script type="module" src="./scripts/cart.js" defer></script>
+  <script type="module" src="./scripts/validation.js" defer></script>
   <title>WB TEST L0</title>
 </head>
 <body>
@@ -249,13 +252,30 @@
 
           <div class="form_container">
             <div class="row_container">
-              <input class="input" type="text" placeholder="Имя">
-              <input class="input" type="text" placeholder="Фамилия">
+              <label class="js-input-label">
+                <input class="input js-input" type="text" placeholder="Имя">
+                <span>Укажите имя</span>
+              </label>
+              <label class="js-input-label">
+                <input class="input js-input" type="text" placeholder="Фамилия">
+                <span>Введите фамилию</span>
+              </label>
+
             </div>
             <div class="row_container">
-              <input class="input" type="text" placeholder="Почта">
-              <input class="input" type="text" placeholder="Телефон">
-              <input class="input" type="text" placeholder="ИНН">
+              <label class="js-input-label">
+                <input class="input js-input js-input-email " type="email" placeholder="Почта">
+                <span>Укажите электронную почту</span>
+              </label>
+              <label class="js-input-label">
+                <input class="input js-input js-input-phone" type="tel" placeholder="Телефон">
+                <span>Укажите номер телефона</span>
+              </label>
+              <label class="js-input-label">
+                <input class="input js-input" type="text" placeholder="ИНН">
+                <span>Укажите ИНН</span>
+              </label>
+
             </div>
 
           </div>
@@ -298,7 +318,12 @@
                 <div class="bottom_info">
                   <img src="/assets/icons/done_green.svg" alt="done_green">
                   <div>
-                    Обратная доставка товаров на склад при отказе — <span>бесплатно</span>
+                    Обратная доставка товаров на склад при отказе — <span class="green_info tooltip">бесплатно
+                  <span class="tooltip_container tooltip_text w-300">
+                    Если товары вам не подойдут, мы вернем их обратно на склад — это бесплатно
+                  </span>
+
+                  </span>
                   </div>
                 </div>
               </div>

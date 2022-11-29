@@ -359,7 +359,7 @@
 .white_wrapper .bottom_info_container img {
   margin-right: 9px;
 }
-.white_wrapper .bottom_info_container span {
+.white_wrapper .bottom_info_container .green_info {
   color: #0CB477;
   margin-left: 4px;
 }
@@ -444,7 +444,7 @@
   line-height: 16px;
   color: #000000;
 }
-.basket_section_container .bottom_info span {
+.basket_section_container .bottom_info .green_info {
   color: #0CB477;
   margin-left: 4px;
 }
