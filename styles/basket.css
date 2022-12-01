@@ -367,6 +367,7 @@
 /*Способ оплаты*/
 .bank_card {
   display: flex;
+  align-items: center;
   flex-direction: row;
   align-self: flex-start;
   margin: 8px 0 16px;

@@ -253,26 +253,26 @@
           <div class="form_container">
             <div class="row_container">
               <label class="js-input-label">
-                <input class="input js-input" type="text" placeholder="Имя">
+                <input data-type="name" data-touched="false" class="input js-input" type="text" placeholder="Имя" name="name">
                 <span>Укажите имя</span>
               </label>
               <label class="js-input-label">
-                <input class="input js-input" type="text" placeholder="Фамилия">
+                <input data-type="second-name"  data-touched="false" class="input js-input" type="text" placeholder="Фамилия" name="second-name">
                 <span>Введите фамилию</span>
               </label>
 
             </div>
             <div class="row_container">
               <label class="js-input-label">
-                <input class="input js-input js-input-email " type="email" placeholder="Почта">
+                <input data-type="email" data-touched="false" class="input js-input js-input-email " type="email" placeholder="Почта" name="email">
                 <span>Укажите электронную почту</span>
               </label>
               <label class="js-input-label">
-                <input class="input js-input js-input-phone" type="tel" placeholder="Телефон">
+                <input data-type="phone" data-touched="false" class="input js-input js-input-phone" type="tel" placeholder="Телефон" name="phone">
                 <span>Укажите номер телефона</span>
               </label>
               <label class="js-input-label">
-                <input class="input js-input" type="text" placeholder="ИНН">
+                <input data-type="INN"  data-touched="false" class="input js-input" type="text" placeholder="ИНН" name="inn">
                 <span>Укажите ИНН</span>
               </label>
 
@@ -425,7 +425,7 @@
               </div>
             </div>
 
-            <button class="basket_button mt-24">
+            <button id="pay_mobile_button" class="basket_button mt-24">
               Заказать
             </button>
 

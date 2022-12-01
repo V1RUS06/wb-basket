@@ -16,6 +16,9 @@
 * {
   font-family: 'Segoe UI', sans-serif;
 }
+body {
+  overflow-x: hidden;
+}
 
 .container {
   background-color: #6725A8;

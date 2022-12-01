@@ -101,4 +101,21 @@
     width: 100vw;
     padding: 16px;
   }
+  .modal {
+    display: flex;
+    position: fixed;
+    /*width: 400px;*/
+    background: #FFFFFF;
+    min-height: 408px;
+    overflow: auto;
+    z-index: 2;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    transform: translateX(0);
+    padding: 16px 22px 24px 22px;
+    /*box-shadow: 0 4px 10px rgb(0 0 0 / 20%);*/
+    /*border-radius: 16px;*/
+  }
 }
