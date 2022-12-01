@@ -4,12 +4,10 @@ const form = document.querySelector('.form_container'),
     inputEmail = document.querySelector('.js-input-email'),
     inputPhone = document.querySelector('.js-input-phone'),
     payButton = document.getElementById('pay_button');
-    // payMobileButton = document.getElementById('pay_mobile_button');
 
 payButton.addEventListener('click', e => {
   validateInputs();
-  addValidationListeners('focusout');
-  // addValidationListeners('input');
+  addValidationListeners('input');
 })
 
 if (window.innerWidth < 430){
@@ -18,7 +16,7 @@ if (window.innerWidth < 430){
 
     if (e.target === payMobileButton) {
       validateInputs(true);
-      addValidationListeners('focusout');
+      addValidationListeners('input');
     }
   })
 }
@@ -26,7 +24,9 @@ if (window.innerWidth < 430){
 
 window.addEventListener('load', e => {
   inputPhone.addEventListener('input', e => {
-   changePhone(e.target)
+    const newValue = changePhone(e.target.value)
+
+    inputPhone.value = newValue
   })
 })
 
@@ -110,7 +110,7 @@ function validateInputs(mobile = false){
 }
 
 function validateTextInput(input, mobile = false) {
-    if (input.value === '') {
+  if (input.value === '') {
       input.parentElement.classList.add('error')
       if (mobile) {
         form.scrollIntoView({behavior: 'smooth', block: 'center'})
@@ -121,31 +121,37 @@ function validateTextInput(input, mobile = false) {
 }
 
 
+let prevValue = '';
 
 function changePhone(phone) {
-  const russian_number = '+7'
-
-  if (phone.value === russian_number || phone.value.length < russian_number.length){
-    return phone.value = russian_number + ' '
-  }
-  if (phone.value.length <= russian_number.length) {
-    return phone.value = russian_number + phone.value
-  }
-  if (phone.value.length === 6) {
-    return phone.value = phone.value + ' '
-  }
-  if (phone.value.length === 10) {
-    return phone.value += ' '
-  }
-  if (phone.value.length === 13) {
-    return phone.value +=  ' '
-  }
-  if (phone.value.length === 16) {
-    return phone.value +=  ' '
+  const russian_number = '+7 '
+  if (phone.length > 16) {
+    return prevValue
   }
 
-  return phone.value
+  if (phone.length < prevValue.length && prevValue !== russian_number) {
+    prevValue = phone
+    return phone
+  }
 
+  if (phone.length <= russian_number.length) {
+    prevValue = russian_number
+
+    return russian_number
+  }
+
+  if (phone.length === 6
+    || phone.length === 10
+    || phone.length === 13
+    || phone.length === 15
+  ) {
+    prevValue = russian_number + phone + ' '
+
+    return phone + ' '
+  }
+  prevValue = phone
+
+  return phone
 }
 
 
@@ -153,40 +159,23 @@ function changePhone(phone) {
 function addValidationListeners(eventType, mobile = false) {
   formInputs.forEach(input => {
     input.addEventListener(eventType, e => {
-      // if (eventType === 'focusout' && e.target.dataset.touched === 'true') {
-      //   return
-      // }
-
-      // if (e.target.dataset.type === input.dataset.type) {
        switch (e.target.dataset.type) {
          case 'name':
          case 'second-name':
          case 'INN': {
-           if (mobile) {
-             validateTextInput(e.target, true)
-           }
-           validateTextInput(e.target)
+           validateTextInput(e.target, mobile)
            break;
          }
          case 'email': {
-           if (mobile) {
-             validateEmail(e.target, true)
-           }
-           validateEmail(e.target)
+
+           validateEmail(e.target, mobile)
            break;
          }
          case 'phone': {
-           if (mobile){
-             validatePhone(e.target, true)
-           }
-           validatePhone(e.target)
+           validatePhone(e.target, mobile)
            break;
          }
        }
-      // }
-      // if (eventType === 'focusout'){
-      //   e.target.dataset.touched = 'true';
-      // }
 
     })
   })
