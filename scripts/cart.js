@@ -1,24 +1,25 @@
 export const Cart = {
-  cart: [{
-    id: 1,
-    name: 'Футболка UZcotton мужская',
-    image_source: 'assets/images/product_1.png',
-    details: ['Цвет: белый', "Размер: 56"],
-    storage: 'Коледино WB',
-    seller: 'OOO Вайлдберриз',
-    count: 1,
-    totalLeft: 2,
-    newPrice: 522,
-    lastPrice: 1051,
-    selected: false,
-  },
+  cart: [
+    {
+      id: 1,
+      name: "Футболка UZcotton мужская",
+      image_source: "assets/images/product_1.png",
+      details: ["Цвет: белый", "Размер: 56"],
+      storage: "Коледино WB",
+      seller: "OOO Вайлдберриз",
+      count: 1,
+      totalLeft: 2,
+      newPrice: 522,
+      lastPrice: 1051,
+      selected: false,
+    },
     {
       id: 2,
-      name: 'Силиконовый чехол картхолдер (отверстия) для карт, прозрачный кейс бампер на Apple iPhone XR, MobiSafe',
-      image_source: 'assets/images/product_2.png',
-      details: ['Цвет: прозрачный'],
-      storage: 'Коледино WB',
-      seller: 'OOO Вайлдберриз',
+      name: "Силиконовый чехол картхолдер (отверстия) для карт, прозрачный кейс бампер на Apple iPhone XR, MobiSafe",
+      image_source: "assets/images/product_2.png",
+      details: ["Цвет: прозрачный"],
+      storage: "Коледино WB",
+      seller: "OOO Вайлдберриз",
       count: 3,
       newPrice: 12000,
       totalLeft: 10,
@@ -28,136 +29,159 @@ export const Cart = {
     {
       id: 3,
       name: 'Карандаши цветные Faber-Castell "Замок", набор 24 цвета, заточенные, шестигранные, Faber-Castell ',
-      image_source: 'assets/images/product_3.png',
+      image_source: "assets/images/product_3.png",
       details: [],
-      storage: 'Коледино WB',
-      seller: 'OOO Вайлдберриз',
+      storage: "Коледино WB",
+      seller: "OOO Вайлдберриз",
       count: 1,
       newPrice: 494,
       totalLeft: 20,
       lastPrice: 950,
       selected: true,
-    }
+    },
   ],
   selectedAll: false,
 
-  deleteCartItem: (deleteItem) => this.cart.filter((item) => item.id === deleteItem.id),
+  deleteCartItem: (deleteItem) =>
+    this.cart.filter((item) => item.id === deleteItem.id),
 
   getFinalBasketPrice() {
     return this.cart.reduce((sum, item) => {
       if (item.selected) {
-        return sum + (item.newPrice * item.count)
+        return sum + item.newPrice * item.count;
       }
-      return sum
-
-    }, 0)
+      return sum;
+    }, 0);
   },
   getQuantityBasedPrice(id) {
-    const selectedElementIndex = this.cart.findIndex((elem) => elem.id === +id)
+    const selectedElementIndex = this.cart.findIndex((elem) => elem.id === +id);
 
     return {
-      newPrice: this.cart[selectedElementIndex].count * this.cart[selectedElementIndex].newPrice,
-      lastPrice: this.cart[selectedElementIndex].count * this.cart[selectedElementIndex].lastPrice,
-    }
+      newPrice:
+        this.cart[selectedElementIndex].count *
+        this.cart[selectedElementIndex].newPrice,
+      lastPrice:
+        this.cart[selectedElementIndex].count *
+        this.cart[selectedElementIndex].lastPrice,
+    };
   },
 
-  onSelectElement(id){
-    const selectedElementIndex = this.cart.findIndex((elem) => elem.id === +id)
+  onSelectElement(id) {
+    const selectedElementIndex = this.cart.findIndex((elem) => elem.id === +id);
 
-    this.cart[selectedElementIndex].selected = !this.cart[selectedElementIndex].selected
+    this.cart[selectedElementIndex].selected =
+      !this.cart[selectedElementIndex].selected;
   },
 
   onSelectAll() {
-    const productsCheckboxes = document.querySelectorAll('[name=product-checkbox]')
+    const productsCheckboxes = document.querySelectorAll(
+      "[name=product-checkbox]"
+    );
     if (!this.selectedAll) {
       this.cart.forEach((elem, index) => {
-        productsCheckboxes[index].checked = true
-        elem.selected = true
-      })
-      this.selectedAll = true
-      return
+        productsCheckboxes[index].checked = true;
+        elem.selected = true;
+      });
+      this.selectedAll = true;
+      return;
     }
-      this.cart.forEach((elem, index) => {
-        productsCheckboxes[index].checked = false
-        elem.selected = false
-      })
-      this.selectedAll = false
-
+    this.cart.forEach((elem, index) => {
+      productsCheckboxes[index].checked = false;
+      elem.selected = false;
+    });
+    this.selectedAll = false;
   },
 
-  increaseProductCount(id){
-    const selectedElementIndex = this.cart.findIndex((elem) => elem.id === +id)
+  increaseProductCount(id) {
+    const selectedElementIndex = this.cart.findIndex((elem) => elem.id === +id);
     const product = this.cart[selectedElementIndex];
 
-    this.disableCountButton({productIndex: selectedElementIndex, disableMinus: false})
-
+    this.disableCountButton({
+      productIndex: selectedElementIndex,
+      disableMinus: false,
+    });
 
     if (product.totalLeft === product.count) {
       return;
     }
 
-    product.count = product.count + 1
-    if (product.count === product.totalLeft){
-      this.disableCountButton({productIndex: selectedElementIndex, disablePlus: true})
+    product.count = product.count + 1;
+    if (product.count === product.totalLeft) {
+      this.disableCountButton({
+        productIndex: selectedElementIndex,
+        disablePlus: true,
+      });
     }
   },
-  decreaseProductCount(id){
-    const selectedElementIndex = this.cart.findIndex((elem) => elem.id === +id)
+  decreaseProductCount(id) {
+    const selectedElementIndex = this.cart.findIndex((elem) => elem.id === +id);
     const product = this.cart[selectedElementIndex];
 
-    this.disableCountButton({productIndex: selectedElementIndex, disablePlus: false})
+    this.disableCountButton({
+      productIndex: selectedElementIndex,
+      disablePlus: false,
+    });
 
     if (product.count === 1) {
       return;
     }
 
-
-    product.count = product.count - 1
-    if (product.count === 1){
-      this.disableCountButton({productIndex: selectedElementIndex, disableMinus: true})
-    }
-
-  },
-  disableCountButton({productIndex, disablePlus,disableMinus }) {
-    if (typeof disablePlus !== 'undefined' ) {
-      const increaseBtn = document.querySelectorAll('.counter_plus')[productIndex]
-      increaseBtn.disabled = disablePlus
-
-    }
-    if (typeof disableMinus !== 'undefined' ) {
-      const decreaseBtn = document.querySelectorAll('.counter_minus')[productIndex]
-      decreaseBtn.disabled = disableMinus
-
+    product.count = product.count - 1;
+    if (product.count === 1) {
+      this.disableCountButton({
+        productIndex: selectedElementIndex,
+        disableMinus: true,
+      });
     }
   },
+  disableCountButton({ productIndex, disablePlus, disableMinus }) {
+    if (typeof disablePlus !== "undefined") {
+      const increaseBtn =
+        document.querySelectorAll(".counter_plus")[productIndex];
+      increaseBtn.disabled = disablePlus;
+    }
+    if (typeof disableMinus !== "undefined") {
+      const decreaseBtn =
+        document.querySelectorAll(".counter_minus")[productIndex];
+      decreaseBtn.disabled = disableMinus;
+    }
+  },
 
-  renderCart () {
-    const listHtml = this.cart.map(item => {
+  renderCart() {
+    const listHtml = this.cart.map((item) => {
       return `
       <div class="item_container">
             <div class="item_left_container">
               <div class="product_card">
-                <div class="product_image_container pl-32">
-                  <label class="checkbox">
-                    <input data-id="${item.id}" ${item.selected ? 'checked' : ''} class="check_input" type="checkbox" name="product-checkbox" >
+                <div class="product_image_container ">
+                  <label class="checkbox checkbox_card_mobile">
+                    <input data-id="${item.id}" ${
+        item.selected ? "checked" : ""
+      } class="check_input" type="checkbox" name="product-checkbox" >
                     <span class="check_box"></span>
                   </label>
-                  <img src="${item.image_source}" alt="product" class="product_img">
+                  <img src="${
+                    item.image_source
+                  }" alt="product" class="product_img">
                 </div>
                 <div class="product_info">
                   <div class="product_cost_container_mobile">
                     <span class="cost">${item.newPrice} сом</span>
-                    <div class="cost_without-discount">${item.lastPrice} сом</div>
+                    <div class="cost_without-discount">${
+                      item.lastPrice
+                    } сом</div>
                   </div>
                   <div class="product_name">
                     ${item.name}
                   </div>
                   <div class="product_details">
-                    ${item.details.map(detail => `<div class="details">${detail}</div>`).join('')}
+                    ${item.details
+                      .map((detail) => `<div class="details">${detail}</div>`)
+                      .join("")}
                   </div>
                   <div class="seller_info">
                     <div class="info_gray">${item.storage}</div>
-                    <div class="info_gray">
+                    <div class="info_gray mobile_disabled">
                       ${item.seller}
                       <span class="tooltip">
                         <img src="/assets/icons/info.svg" alt="info" class="info_right_icon">
@@ -177,11 +201,17 @@ export const Cart = {
             <div class="item_right_container">
               <div class="product_controls_container">
                 <div class="counter">
-                  <button ${item.count === 1 ? 'disabled' : ''} data-id="${item.id}" class="counter_minus">-</button>
+                  <button ${item.count === 1 ? "disabled" : ""} data-id="${
+        item.id
+      }" class="counter_minus">−</button>
                   <div class="counter_value">${item.count}</div>
-                  <button ${item.count === item.totalLeft ? 'disabled' : ''} data-id="${item.id}"  class="counter_plus">+</button>
+                  <button ${
+                    item.count === item.totalLeft ? "disabled" : ""
+                  } data-id="${item.id}"  class="counter_plus">+</button>
                 </div>
-                <div class="product_max">${item.totalLeft < 5 ? `Осталось ${item.totalLeft} шт.` : '' }</div>
+                <div class="product_max">${
+                  item.totalLeft < 5 ? `Осталось ${item.totalLeft} шт.` : ""
+                }</div>
                 <div class="product_controls_icons">
                 
                   <svg class="favorites"  width="20" height="16" viewBox="0 0 20 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -197,16 +227,22 @@ export const Cart = {
                 </div>
               </div>
               <div class="product_cost_container">
-                <span class="cost">${item.newPrice} сом</span>
-                <span class="cost_without-discount tooltip">${item.lastPrice} сом
+                <p class="cost">${item.newPrice} <span>сом</span></p>
+                <span class="cost_without-discount tooltip">${
+                  item.lastPrice
+                } сом
                 <div class="tooltip_container">
                   <div class="tooltip_discount_container">
                      <div>Скидка 55%</div>
-                     <div class="tooltip_text-gray">- ${item.lastPrice - item.newPrice} com</div>
+                     <div class="tooltip_text-gray">- ${
+                       item.lastPrice - item.newPrice
+                     } com</div>
                   </div>
                  <div class="tooltip_discount_container">
                      <div>Скидка покупателя 10%</div>
-                     <div class="tooltip_text-gray">- ${item.lastPrice - item.newPrice} com</div>
+                     <div class="tooltip_text-gray">- ${
+                       item.lastPrice - item.newPrice
+                     } com</div>
                     </div>
                 </div>
                </span>
@@ -214,11 +250,11 @@ export const Cart = {
               </div>
             </div>
           </div>
-      `
-    })
+      `;
+    });
 
-    const listContainer = document.querySelector('.basket_items_container')
+    const listContainer = document.querySelector(".basket_items_container");
 
-    listContainer.innerHTML = listHtml.join('')
-  }
-}
+    listContainer.innerHTML = listHtml.join("");
+  },
+};

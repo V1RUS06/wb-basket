@@ -1,16 +1,72 @@
+/*@font-face {*/
+/*  font-family: 'Segoe UI';*/
+/*  src: url("../assets/fonts/Segoe-UI.woff");*/
+/*  font-weight: 400;*/
+/*  font-display: swap;*/
+/*  font-style: normal;*/
+/*}*/
+/*@font-face {*/
+/*  font-family: 'Segoe UI';*/
+/*  src: url("../assets/fonts/SegoeUI-SemiBold.woff");*/
+/*  font-weight: 600;*/
+/*  font-display: swap;*/
+/*  font-style: normal;*/
+/*}*/
+/*@font-face {*/
+/*  font-family: 'Segoe UI';*/
+/*  src: url("../assets/fonts/Segoe-UI-Bold.woff");*/
+/*  font-weight: 700;*/
+/*  font-display: swap;*/
+/*  font-style: normal;*/
+/*}*/
 @font-face {
-  font-family: 'Segoe UI';
-  src: url("assets/fonts/Segoe-UI.woff");
-  font-weight: 400;
-  font-display: swap;
-  font-style: normal;
+  font-family: SegoeUI;
+  src:
+    local("Segoe UI Light"),
+    url(//c.s-microsoft.com/static/fonts/segoe-ui/west-european/light/latest.woff2) format("woff2"),
+    url(//c.s-microsoft.com/static/fonts/segoe-ui/west-european/light/latest.woff) format("woff"),
+    url(//c.s-microsoft.com/static/fonts/segoe-ui/west-european/light/latest.ttf) format("truetype");
+  font-weight: 100;
 }
+
 @font-face {
-  font-family: 'Segoe UI';
-  src: url("assets/fonts/Segoe-UI-Bold.woff");
+  font-family: SegoeUI;
+  src:
+    local("Segoe UI Semilight"),
+    url(//c.s-microsoft.com/static/fonts/segoe-ui/west-european/semilight/latest.woff2) format("woff2"),
+    url(//c.s-microsoft.com/static/fonts/segoe-ui/west-european/semilight/latest.woff) format("woff"),
+    url(//c.s-microsoft.com/static/fonts/segoe-ui/west-european/semilight/latest.ttf) format("truetype");
+  font-weight: 200;
+}
+
+@font-face {
+  font-family: SegoeUI;
+  src:
+    local("Segoe UI"),
+    url(//c.s-microsoft.com/static/fonts/segoe-ui/west-european/normal/latest.woff2) format("woff2"),
+    url(//c.s-microsoft.com/static/fonts/segoe-ui/west-european/normal/latest.woff) format("woff"),
+    url(//c.s-microsoft.com/static/fonts/segoe-ui/west-european/normal/latest.ttf) format("truetype");
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: SegoeUI;
+  src:
+    local("Segoe UI Bold"),
+    url(//c.s-microsoft.com/static/fonts/segoe-ui/west-european/bold/latest.woff2) format("woff2"),
+    url(//c.s-microsoft.com/static/fonts/segoe-ui/west-european/bold/latest.woff) format("woff"),
+    url(//c.s-microsoft.com/static/fonts/segoe-ui/west-european/bold/latest.ttf) format("truetype");
+  font-weight: 600;
+}
+
+@font-face {
+  font-family: SegoeUI;
+  src:
+    local("Segoe UI Semibold"),
+    url(//c.s-microsoft.com/static/fonts/segoe-ui/west-european/semibold/latest.woff2) format("woff2"),
+    url(//c.s-microsoft.com/static/fonts/segoe-ui/west-european/semibold/latest.woff) format("woff"),
+    url(//c.s-microsoft.com/static/fonts/segoe-ui/west-european/semibold/latest.ttf) format("truetype");
   font-weight: 700;
-  font-display: swap;
-  font-style: normal;
 }
 
 * {
@@ -27,12 +83,12 @@ body {
 .wrapper {
   border-radius: 24px;
   background-color: #F6F6FA;
-  padding: 24px;
+  padding: 24px 24px 32px 24px;
 }
 .gray_wrapper {
   border-radius: 8px;
   background-color: #F6F6FA;
-  padding: 8px 8px 12px 8px;
+  padding: 8px 7px 12px 6px
 }
 .footer {
   display: flex;
@@ -54,7 +110,7 @@ body {
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
   width: 100%;
   padding-bottom: 4px;
-  margin: 18px 24px 22px 0;
+  margin: 34px 24px 4px 0;
   position: relative;
   flex-direction: column;
 }
@@ -123,17 +179,41 @@ body {
   clip: rect(0 0 0 0);
 }
 .check_box {
-  position: absolute;
+  /*position: absolute;*/
   width: 22px;
   height: 22px;
   background-image: url("/assets/icons/checkbox_off.svg");
-  margin-left: -34px;
+  /*margin-left: -32px;*/
 
 }
 .check_input:checked + .check_box {
   background-image: url("/assets/icons/checkbox.svg");
+  margin-top: 1px;
 }
-
+.dn {
+  display: none;
+}
+.ml0{
+  margin-left: 0;
+}
+.m0 {
+  margin: 0;
+}
+.mb0 {
+  margin-bottom: 0;
+}
+.address_container{
+  margin-top: 20px;
+}
+.pb-40{
+  padding-bottom: 40px;
+}
+.mt-10 {
+  margin-top: 10px;
+}
+.pointer {
+  cursor: pointer;
+}
 
 
 

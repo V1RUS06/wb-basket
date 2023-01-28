@@ -3,60 +3,65 @@ export const Address = {
     {
       id: 1,
       rate: 4.9,
-      workTime: 'Ежедневно с 10 до 21 ',
-      address: 'Бишкек, улица Табышалиева, 57'
+      workTime: "Ежедневно с 10 до 21 ",
+      address: "Бишкек, улица Ахматбека Суюмбаева, 12/1",
     },
     {
       id: 2,
       rate: 4.3,
-      workTime: 'Ежедневно с 10 до 21 ',
-      address: 'Бишкек, улица Жукеева-Пудовкина, 77/1'
+      workTime: "Ежедневно с 10 до 21 ",
+      address: "Бишкек, улица Жукеева-Пудовкина, 77/1",
     },
     {
       id: 3,
       rate: 5,
-      workTime: 'Ежедневно с 10 до 21 ',
-      address: 'Бишкек, микрорайон Джал, улица Ахунбаева Исы, 67/1'
+      workTime: "Ежедневно с 10 до 21 ",
+      address: "Бишкек, микрорайон Джал, улица Ахунбаева Исы, 67/1",
     },
   ],
   points_addresses: [
     {
       id: 1,
       rate: 4.2,
-      workTime: 'Ежедневно с 10 до 21 ',
-      address: 'Москва, улица Табышалиева, 22'
+      workTime: "Ежедневно с 10 до 21 ",
+      address: "Москва, улица Табышалиева, 22",
     },
     {
       id: 2,
       rate: 4.3,
-      workTime: 'Ежедневно с 10 до 21 ',
-      address: 'Питер, улица Табышалиева, 45'
+      workTime: "Ежедневно с 10 до 21 ",
+      address: "Питер, улица Табышалиева, 45",
     },
   ],
   activeAddressIndex: 0,
-  delivery_method: 'delivery_point', // courier || delivery_point
+  delivery_method: "delivery_point", // courier || delivery_point
 
   changeSelectedAddressIndex(index) {
-    this.activeAddressIndex = index
+    this.activeAddressIndex = index;
   },
 
   changeDeliveryMethod(method) {
-    this.delivery_method = method
+    this.delivery_method = method;
   },
   renderDelivery() {
-    if (this.delivery_method === 'delivery_point') {
-      this.renderPointAddresses()
+    if (this.delivery_method === "delivery_point") {
+      this.renderPointAddresses();
     } else {
-      this.renderAddresses()
+      this.renderAddresses();
     }
   },
   renderPointAddresses() {
-    const points_addresses = this.points_addresses.map((address, index) => {
-      return `
+    const points_addresses = this.points_addresses
+      .map((address, index) => {
+        return `
               <div class="address_card_container">
 
             <label class="circle_checkbox_address w-100" data-index="${index}">
-              <input class="check_input" ${index === this.selectedCardIndex ? 'checked' : ''} data-id="${address.id}" ${this.selectedCardIndex === index ? 'checked' : ''}  type="radio" name="radio-btn">            
+              <input class="check_input" ${
+                index === this.selectedCardIndex ? "checked" : ""
+              } data-id="${address.id}" ${
+          this.selectedCardIndex === index ? "checked" : ""
+        }  type="radio" name="radio-btn">            
               <span class="circle_check_box_address"></span>
               <div class="address_card pl-10">
                 <span class="address_span">${address.address}</span>
@@ -68,21 +73,23 @@ export const Address = {
               <path fill-rule="evenodd" clip-rule="evenodd" d="M11 3.5H5V1.46875C5 0.657582 5.65758 0 6.46875 0H9.53125C10.3424 0 11 0.657582 11 1.46875V3.5ZM6.46875 1C6.20987 1 6 1.20987 6 1.46875V2.5H10V1.46875C10 1.20987 9.79013 1 9.53125 1H6.46875Z" fill="black"/>
              </svg>
             
-        </div>`
-    }).join('')
+        </div>`;
+      })
+      .join("");
 
-
-    const container = document.querySelector('.addresses_cards_container')
-    container.innerHTML = points_addresses
-
+    const container = document.querySelector(".addresses_cards_container");
+    container.innerHTML = points_addresses;
   },
 
   renderAddresses() {
-    const addresses = this.addresses.map((address, index) => {
-      return `
+    const addresses = this.addresses
+      .map((address, index) => {
+        return `
               <div class="address_card_container">
                 <label class="circle_checkbox_address w-100" data-index="${index}">
-              <input class="check_input" data-id="${address.id}" ${this.selectedCardIndex === index ? 'checked' : ''}  type="radio" name="radio-btn">            
+              <input class="check_input" data-id="${address.id}" ${
+          this.selectedCardIndex === index ? "checked" : ""
+        }  type="radio" name="radio-btn">            
               <span class="circle_check_box_address"></span>
               <div class="address_card pl-10">
                 <span class="address_span">${address.address}</span>
@@ -95,17 +102,15 @@ export const Address = {
              </svg>
             
             </div>
-            `
-    }).join('')
+            `;
+      })
+      .join("");
 
-
-    const container = document.querySelector('.addresses_cards_container')
-    container.innerHTML = addresses
+    const container = document.querySelector(".addresses_cards_container");
+    container.innerHTML = addresses;
   },
 
-
   renderAddressModal() {
-
     const modal = `
      <div class="modal address_modal-width">
       <div class="modal_header">
@@ -116,8 +121,12 @@ export const Address = {
       </div>
 
       <div class="delivery_methods_container">
-        <button data-action="delivery_point" class="delivery_method_btn ${this.delivery_method === 'delivery_point' ? 'active' : ''}">В пункт выдачи</button>
-        <button data-action="courier" class="delivery_method_btn ${this.delivery_method === 'courier' ? 'active' : ''}">Курьером</button>
+        <button data-action="delivery_point" class="delivery_method_btn ${
+          this.delivery_method === "delivery_point" ? "active" : ""
+        }">В пункт выдачи</button>
+        <button data-action="courier" class="delivery_method_btn ${
+          this.delivery_method === "courier" ? "active" : ""
+        }">Курьером</button>
       </div>
       
       <div class="content">
@@ -131,13 +140,12 @@ export const Address = {
 
     </div>
     
-    <div class="overlay"></div>`
+    <div class="overlay"></div>`;
 
-    const container = document.querySelector('.address_container')
+    const container = document.querySelector(".address_container");
 
-    container.insertAdjacentHTML('afterend', modal)
+    container.insertAdjacentHTML("afterend", modal);
   },
-
 
   renderAddress() {
     const addressContainer = `
@@ -152,17 +160,21 @@ export const Address = {
                 <div class="pickup_point_title">Пункт выдачи</div>
               </div>
               <div class="pickup_right_container">
-                <div class="pickup_point_address address_span">${this.addresses[this.activeAddressIndex].address}</div>
+                <div class="pickup_point_address address_span">${
+                  this.addresses[this.activeAddressIndex].address
+                }</div>
                 <div class="pickup_point_info">
                   <img src="/assets/icons/Star.svg" alt="star">
-                  <span class="address_rate">${this.addresses[this.activeAddressIndex].rate}</span>
+                  <span class="address_rate">${
+                    this.addresses[this.activeAddressIndex].rate
+                  }</span>
                   <div class="pickup_point_work_time">
                     ${this.addresses[this.activeAddressIndex].workTime}
                   </div>
                 </div>
               </div>
             </div>
-            <div class="pickup_point_section">
+            <div class="pickup_point_section mm18">
               <div class="pickup_left_container">
                 <div class="pickup_point_title">Стоимость доставки</div>
               </div>
@@ -171,12 +183,12 @@ export const Address = {
               </div>
 
             </div>
-            <div class="pickup_point_section">
-              <div class="pickup_left_container">
+            <div class="pickup_point_section mm18">
+              <div class="pickup_left_container ">
                 <div class="pickup_point_title">5—6 февраля</div>
               </div>
 
-              <div class="pickup_right_container row_container">
+              <div class="pickup_right_container row_container mm12">
                 <div class="product_card">
                   <img src="/assets/images/product_1.png" alt="product">
                 </div>
@@ -189,12 +201,12 @@ export const Address = {
               </div>
 
             </div>
-            <div class="pickup_point_section">
+            <div class="pickup_point_section mm24">
               <div class="pickup_left_container">
                 <div class="pickup_point_title">7—8 февраля</div>
               </div>
 
-              <div class="pickup_right_container row_container">
+              <div class="pickup_right_container row_container mm12">
                 <div class="product_card">
                   <img src="/assets/images/product_3.png" alt="product">
                 </div>
@@ -213,9 +225,9 @@ export const Address = {
             </div>
           </div>
         </div>
-    `
+    `;
 
-    const container = document.querySelector('.address_container')
-    container.innerHTML = addressContainer
-  }
-}
+    const container = document.querySelector(".address_container");
+    container.innerHTML = addressContainer;
+  },
+};
