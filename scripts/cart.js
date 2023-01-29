@@ -22,7 +22,7 @@ export const Cart = {
       seller: "OOO Вайлдберриз",
       count: 3,
       newPrice: 12000,
-      totalLeft: 10,
+      totalLeft: 200,
       lastPrice: 15000,
       selected: true,
     },
@@ -35,7 +35,7 @@ export const Cart = {
       seller: "OOO Вайлдберриз",
       count: 1,
       newPrice: 494,
-      totalLeft: 20,
+      totalLeft: 200,
       lastPrice: 950,
       selected: true,
     },
@@ -51,6 +51,14 @@ export const Cart = {
         return sum + item.newPrice * item.count;
       }
       return sum;
+    }, 0);
+  },
+  getSelectedItems() {
+    return this.cart.reduce((acc, item) => {
+      if (item.selected) {
+        return (acc += 1);
+      }
+      return acc;
     }, 0);
   },
   getQuantityBasedPrice(id) {

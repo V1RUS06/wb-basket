@@ -231,8 +231,11 @@
 .product_controls_icons .trash {
   cursor: pointer;
 }
-.product_controls_icons  .favorites:hover, .trash:hover {
+.product_controls_icons  .trash:hover {
   stroke: #F55123
+}
+.product_controls_icons .favorites:hover {
+  stroke: #CB11AB
 }
 
 .product_cost_container {
